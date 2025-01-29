@@ -31,9 +31,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view("admin/add-city", "admin/addCity");
-Route::post("admin/save-city", [WeatherController::class, "saveCity"])
-    ->name("saveCity");
+Route::middleware(["auth", \App\Http\Middleware\AdminCheckMiddleware::class])->prefix("/admin")->group(function () {
+
+    Route::view("/add-city", "admin/addCity");
+    Route::post("/save-city", [WeatherController::class, "saveCity"])
+        ->name("saveCity");
+    Route::get("/weather", [WeatherController::class, "index"]);
+    Route::get("/delete/{city}", [WeatherController::class, "deleteCity"])
+        ->name("deleteCity");
+    Route::get("/edit/{city}", [WeatherController::class, "getCity"])
+        ->name("getCity");
+    Route::post("/update/{city}", [WeatherController::class, "updateCity"])
+        ->name("updateCity");
+
+});
+
+Route::middleware("auth")->prefix("/user")->group(function () {
+
+    Route::get("/weather", [WeatherController::class, "showWeather"]);
+
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
