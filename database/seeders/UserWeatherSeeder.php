@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use App\Models\WeatherModel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,6 +26,14 @@ class UserWeatherSeeder extends Seeder
         if($temperature === null)
         {
             $this->command->getOutput()->error("Niste unijeli ime grada!");
+        }
+
+
+        $userWeather = WeatherModel::where(['city' => $city])->first();
+        if($userWeather instanceof WeatherModel)
+        {
+            $this->command->getOutput()->error('Grad sa ovim imenom vec postoji!');
+            return;
         }
 
         WeatherModel::create([

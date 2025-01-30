@@ -21,10 +21,17 @@ class WeatherSeeder extends Seeder
             'Subotica' => 24,
             'Sjenica' => 15,
             'Sarajevo' => 20,
-            'Banjaluka' => 22,
+            'Valjevo' => 22,
         ];
 
         foreach ($weather as $city => $temperature) {
+
+            $userWeather = WeatherModel::where(['city' => $city])->first();
+            if ($userWeather !== null)
+            {
+                $this->command->getOutput()->info("Grad sa ovim imenom vec postoji");
+                continue;
+            }
             WeatherModel::create([
                 'city' => $city,
                 'temperature' => $temperature,
