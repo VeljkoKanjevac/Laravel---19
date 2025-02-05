@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ForecastController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WeatherController;
+use App\Http\Middleware\AdminCheckMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +33,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(["auth", \App\Http\Middleware\AdminCheckMiddleware::class])->prefix("/admin")->group(function () {
+Route::middleware(["auth", AdminCheckMiddleware::class])->prefix("/admin")->group(function () {
 
     Route::view("/add-city", "admin/addCity");
     Route::post("/save-city", [WeatherController::class, "saveCity"])
@@ -45,6 +47,8 @@ Route::middleware(["auth", \App\Http\Middleware\AdminCheckMiddleware::class])->p
         ->name("updateCity");
 
 });
+
+Route::get("/forecast/{city}", [ForecastController::class, "index"]);
 
 Route::middleware("auth")->prefix("/user")->group(function () {
 
