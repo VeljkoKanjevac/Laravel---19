@@ -17,8 +17,7 @@ class CitiesSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        for ($i = 0; $i < 100; $i++)
-        {
+        for ($i = 0; $i < 100; $i++) {
             CitiesModel::create([
                 'name' => $faker->city,
             ]);

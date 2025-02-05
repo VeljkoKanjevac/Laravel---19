@@ -24,8 +24,7 @@ class UserSeeder extends Seeder
 
         $this->command->getOutput()->progressStart($amount);
 
-        for ($i = 0; $i < $amount; $i++)
-        {
+        for ($i = 0; $i < $amount; $i++) {
             User::create([
                 'email' => $faker->email,
                 'name' => $faker->name,

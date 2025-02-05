@@ -13,6 +13,7 @@ class WeatherController extends Controller
 
         return view('admin/weather', compact('weather'));
     }
+
     public function saveCity(Request $request)
     {
         $request->validate([

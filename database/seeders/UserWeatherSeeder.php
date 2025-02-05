@@ -15,21 +15,18 @@ class UserWeatherSeeder extends Seeder
     public function run()
     {
         $city = $this->command->getOutput()->ask('Unesite ime grada: ');
-        if($city === null)
-        {
+        if ($city === null) {
             $this->command->getOutput()->error("Niste unijeli ime grada!");
         }
 
         $temperature = $this->command->getOutput()->ask('Unesite temperaturu: ');
-        if($temperature === null)
-        {
+        if ($temperature === null) {
             $this->command->getOutput()->error("Niste unijeli ime grada!");
         }
 
 
         $userWeather = WeatherModel::where(['city' => $city])->first();
-        if($userWeather instanceof WeatherModel)
-        {
+        if ($userWeather instanceof WeatherModel) {
             $this->command->getOutput()->error('Grad sa ovim imenom vec postoji!');
             return;
         }

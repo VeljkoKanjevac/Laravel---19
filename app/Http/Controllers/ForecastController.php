@@ -13,8 +13,7 @@ class ForecastController extends Controller
 
         $city = strtolower($city);
 
-        if(!array_key_exists($city, $forecasts))
-        {
+        if (!array_key_exists($city, $forecasts)) {
             die("Ovaj grad ne postoji!");
         }
 

@@ -21,14 +21,13 @@ class WeatherSeeder extends Seeder
 
             $userWeather = WeatherModel::where(['city_id' => $city->id])->first();
 
-            if ($userWeather !== null)
-            {
+            if ($userWeather !== null) {
                 $this->command->getOutput()->info("Grad sa ovim imenom vec postoji");
                 continue;
             }
             WeatherModel::create([
                 'city_id' => $city->id,
-                'temperature' => rand(15,30),
+                'temperature' => rand(15, 30),
             ]);
         }
     }

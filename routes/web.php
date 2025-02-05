@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\ForecastController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WeatherController;
@@ -66,13 +67,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::middleware('auth')->prefix('admin')->group(function () {
 
     Route::view("/addCity", "addCity");
 
-    Route::post("saveCity", [\App\Http\Controllers\CitiesController::class, "saveCity"]);
+    Route::post("saveCity", [CitiesController::class, "saveCity"]);
 
 });
 
