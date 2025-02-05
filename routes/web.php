@@ -49,7 +49,7 @@ Route::middleware(["auth", AdminCheckMiddleware::class])->prefix("/admin")->grou
 
 });
 
-Route::get("/forecast/{city}", [ForecastController::class, "index"]);
+Route::get("/forecast/{city:name}", [ForecastController::class, "index"]);
 
 Route::middleware("auth")->prefix("/user")->group(function () {
 
