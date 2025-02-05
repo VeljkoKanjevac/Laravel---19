@@ -18,7 +18,7 @@
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Ime grada</label>
-            <input type="text" name="city" value="{{$city->city}}" class="form-control" id="exampleInputEmail1"
+            <input type="text" name="city" value="{{$city->city->name}}" class="form-control" id="exampleInputEmail1"
                    aria-describedby="emailHelp">
         </div>
         <div class="mb-3">

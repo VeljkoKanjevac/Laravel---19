@@ -11,7 +11,7 @@ class WeatherController extends Controller
     {
         $weather = WeatherModel::all();
 
-        return view('admin/weather', compact('weather'));
+        return view('admin.weather', compact('weather'));
     }
 
     public function saveCity(Request $request)
@@ -38,7 +38,7 @@ class WeatherController extends Controller
 
     public function getCity(WeatherModel $city)
     {
-        return view('admin/editCity', compact('city'));
+        return view('admin.editCity', compact('city'));
     }
 
     public function updateCity(Request $request, WeatherModel $city)

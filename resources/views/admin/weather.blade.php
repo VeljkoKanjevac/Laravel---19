@@ -20,7 +20,7 @@
         @foreach($weather as $singleCity)
             <tr>
                 <th scope="row">{{$singleCity->id}}</th>
-                <td>{{$singleCity->city}}</td>
+                <td>{{$singleCity->city->name}}</td>
                 <td>{{$singleCity->temperature}}</td>
                 <td>
                     <a href="{{ route('deleteCity', ['city' => $singleCity->id]) }}" class="btn btn-danger">Obrisi</a>
