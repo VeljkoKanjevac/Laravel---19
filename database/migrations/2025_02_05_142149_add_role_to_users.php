@@ -13,16 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('weather', function (Blueprint $table) {
-
-            $table->dropColumn('city');
-
-            $table->unsignedBigInteger('city_id')->after('id');
-
-            $table->foreign('city_id')
-                ->references('id')
-                ->on('cities');
-
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->default('normal');
         });
     }
 
@@ -33,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('weather', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }
