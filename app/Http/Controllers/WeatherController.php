@@ -11,7 +11,7 @@ class WeatherController extends Controller
     {
         $weather = WeatherModel::all();
 
-        return view('admin.weather', compact('weather'));
+        return view('weather', compact('weather'));
     }
 
     public function saveCity(Request $request)

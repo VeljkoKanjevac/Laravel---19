@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminWeatherController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\ForecastController;
 use App\Http\Controllers\ProfileController;
@@ -46,6 +47,8 @@ Route::middleware(["auth", AdminCheckMiddleware::class])->prefix("/admin")->grou
         ->name("getCity");
     Route::post("/update/{city}", [WeatherController::class, "updateCity"])
         ->name("updateCity");
+    Route::post("/weather/update", [AdminWeatherController::class, "update"])
+        ->name("weather.update");
 
 });
 
