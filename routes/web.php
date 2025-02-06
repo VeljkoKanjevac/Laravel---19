@@ -32,9 +32,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view("/", "welcome");
 
 Route::middleware(["auth", AdminCheckMiddleware::class])->prefix("/admin")->group(function () {
 
