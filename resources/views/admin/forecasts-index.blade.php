@@ -6,9 +6,9 @@
 
 @section("sadrzajStranice")
 
-    <form method="POST" action="{{route("forecast.create")}}">
+    <form method="POST" action="{{route("forecast.create")}}" class="mb-5"">
 
-        <h2>KREIRANJE NOVOG FORECASTA</h2>
+        <h2 class="mb-5">KREIRANJE NOVOG FORECASTA</h2>
 
         @foreach($errors->all() as $error)
             <p>Greska: {{$error}}</p>

@@ -22,7 +22,7 @@ class ForecastSeeder extends Seeder
 
             for ($i = 0; $i < 5; $i++) {
 
-                $weatherType = ForecastsModel::WEATHERS[rand(0,2)];
+                $weatherType = ForecastsModel::WEATHERS[rand(0,3)];
                 $probability = null;
 
                 if($weatherType == 'rainy' || $weatherType == 'snowy')
