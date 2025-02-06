@@ -36,10 +36,10 @@ Route::get('/', function () {
 
 Route::middleware(["auth", AdminCheckMiddleware::class])->prefix("/admin")->group(function () {
 
+    Route::view("/weather", "admin.weather-index");
     Route::view("/add-city", "admin/addCity");
     Route::post("/save-city", [WeatherController::class, "saveCity"])
         ->name("saveCity");
-    Route::get("/weather", [WeatherController::class, "index"]);
     Route::get("/delete/{city}", [WeatherController::class, "deleteCity"])
         ->name("deleteCity");
     Route::get("/edit/{city}", [WeatherController::class, "getCity"])
@@ -48,6 +48,8 @@ Route::middleware(["auth", AdminCheckMiddleware::class])->prefix("/admin")->grou
         ->name("updateCity");
 
 });
+
+Route::get("/weather", [WeatherController::class, "index"]);
 
 Route::get("/forecast/{city:name}", [ForecastController::class, "index"]);
 
