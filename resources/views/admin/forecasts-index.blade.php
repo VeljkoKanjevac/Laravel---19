@@ -1,4 +1,4 @@
-@php use App\Models\CitiesModel;use App\Models\ForecastsModel; @endphp
+@php use App\Http\ForecastHelper;use App\Models\CitiesModel;use App\Models\ForecastsModel; @endphp
 
 <form method="POST" action="{{route("forecast.create")}}">
 
@@ -33,12 +33,13 @@
 @foreach(CitiesModel::all() as $city)
 
     <div>
-        <ul> <h4>{{$city->name}}</h4>
+        <ul><h4>{{$city->name}}</h4>
 
             @foreach($city->forecasts as $forecast)
-                   <li>
-                       <p>{{$forecast->forecast_date}}------{{$forecast->temperature}}</p>
-                   </li>
+                @php $boja = ForecastHelper::getColorByTemperature($forecast->temperature) @endphp
+                <li>
+                    {{$forecast->forecast_date}}------<span style="color:{{$boja}}"> {{$forecast->temperature}} </span>
+                </li>
             @endforeach
 
         </ul>
