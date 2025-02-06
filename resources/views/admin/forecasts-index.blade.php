@@ -6,7 +6,7 @@
 
 @section("sadrzajStranice")
 
-    <form method="POST" action="{{route("forecast.create")}}" class="mb-5"">
+    <form method="POST" action="{{route("forecast.create")}}" class="mb-5">
 
         <h2 class="mb-5">KREIRANJE NOVOG FORECASTA</h2>
 

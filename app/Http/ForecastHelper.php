@@ -8,7 +8,7 @@
             "rainy" => "fa-cloud-rain",
             "snowy" => "fa-snowflake",
             "sunny" => "fa-sun",
-            "cloudy" => "fa-cloud"
+            "cloudy" => "fa-cloud",
         ];
 
         public static function getIconByWeatherType($type)
