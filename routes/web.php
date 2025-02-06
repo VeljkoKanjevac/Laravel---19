@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminForecastsController;
 use App\Http\Controllers\AdminWeatherController;
 use App\Http\Controllers\CitiesController;
 use App\Http\Controllers\ForecastController;
@@ -49,6 +50,10 @@ Route::middleware(["auth", AdminCheckMiddleware::class])->prefix("/admin")->grou
         ->name("updateCity");
     Route::post("/weather/update", [AdminWeatherController::class, "update"])
         ->name("weather.update");
+
+    Route::view("/forecasts", "admin.forecasts-index");
+    Route::post("/forecast/create", [AdminForecastsController::class, "createForecast"])
+        ->name("forecast.create");
 
 });
 
