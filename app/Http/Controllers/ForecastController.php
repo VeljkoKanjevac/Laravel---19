@@ -20,6 +20,11 @@ class ForecastController extends Controller
         $cityName = $request->get("city");
         $cities = CitiesModel::where('name', 'like', "%$cityName%")->get();
 
+        if(count($cities) == 0)
+        {
+            return redirect()->back()->with("error", "Nismo pronasli gradove koji odgovaraju pretrazi.");
+        }
+
         return view('search-results', compact('cities'));
     }
 }

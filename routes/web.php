@@ -60,7 +60,8 @@ Route::get("/weather", [WeatherController::class, "index"]);
 Route::get("/forecast/search", [ForecastController::class, "search"])
     ->name("forecast.search");
 
-Route::get("/forecast/{city:name}", [ForecastController::class, "index"]);
+Route::get("/forecast/{city:name}", [ForecastController::class, "index"])
+    ->name("forecast.permalink");
 
 Route::middleware("auth")->prefix("/user")->group(function () {
 
