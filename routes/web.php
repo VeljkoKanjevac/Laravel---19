@@ -69,6 +69,14 @@ Route::middleware("auth")->prefix("/user")->group(function () {
 
 });
 
+/**
+ * UserCities
+ */
+
+Route::get("/user-cities/favourite/{city}", [\App\Http\Controllers\UserCities::class, "favourite"])
+    ->name('user.add.favourite');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

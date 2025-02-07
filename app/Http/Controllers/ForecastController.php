@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CitiesModel;
 use App\Models\ForecastsModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ForecastController extends Controller
 {
@@ -27,6 +28,14 @@ class ForecastController extends Controller
             return redirect()->back()->with("error", "Nismo pronasli gradove koji odgovaraju pretrazi.");
         }
 
-        return view('search-results', compact('cities'));
+        $userFavourites = [];
+
+        if(Auth::check())
+        {
+            $userFavourites = Auth::user()->cityFavourites;
+            $userFavourites = $userFavourites->pluck('city_id')->toArray();
+        }
+
+        return view('search-results', compact('cities', 'userFavourites'));
     }
 }
