@@ -13,7 +13,7 @@ class UserCities extends Controller
         $user = Auth::user();
         if($user === null)
         {
-            return redirect()->back()->with(['error' => 'Morate biti ulogovani da biste dodali grad u favourites']);
+            return redirect()->back()->with(['error' => 'Morate biti ulogovani da biste dodali grad u favorite']);
         }
 
         UserCitiesModel::create([
@@ -22,5 +22,19 @@ class UserCities extends Controller
         ]);
 
         return redirect()->back();
+    }
+
+    public function unfavourite(Request $request, $city)
+    {
+        $user = Auth::user();
+        if($user === null)
+        {
+            return redirect()->back()->with(['error' => 'Morate biti ulogovani da biste uklonili grad iz favorita']);
+        }
+
+        UserCitiesModel::where(['user_id' => $user->id, 'city_id' => $city])->delete();
+
+        return redirect()->back();
+
     }
 }

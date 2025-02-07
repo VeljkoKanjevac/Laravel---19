@@ -19,7 +19,7 @@
 
             <p>
                 @if(in_array($city->id, $userFavourites))
-                    <a class="btn btn-primary" href="{{route("user.add.favourite", ['city' => $city->id])}}">
+                    <a class="btn btn-primary" href="{{route("user.remove.favourite", ['city' => $city->id])}}">
                         <i class="fa-solid text-white fa-trash"></i>
                     </a>
                     <a class="btn btn-primary text-white me-4"

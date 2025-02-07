@@ -75,6 +75,8 @@ Route::middleware("auth")->prefix("/user")->group(function () {
 
 Route::get("/user-cities/favourite/{city}", [\App\Http\Controllers\UserCities::class, "favourite"])
     ->name('user.add.favourite');
+Route::get("user-cities/unfavourite/{city}", [\App\Http\Controllers\UserCities::class, "unfavourite"])
+    ->name('user.remove.favourite');
 
 
 Route::get('/dashboard', function () {
