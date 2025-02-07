@@ -52,7 +52,7 @@
 
     <div class="d-flex flex-wrap" style="gap:10px">
 
-        @foreach(CitiesModel::all() as $city)
+        @foreach(CitiesModel::with("forecasts")->get() as $city)
 
             <div class="col-md-3">
 

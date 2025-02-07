@@ -18,7 +18,9 @@ class ForecastController extends Controller
     public function search(Request $request)
     {
         $cityName = $request->get("city");
-        $cities = CitiesModel::where('name', 'like', "%$cityName%")->get();
+        $cities = CitiesModel::with("todayForecast")
+            ->where('name', 'like', "%$cityName%")
+            ->get();
 
         if(count($cities) == 0)
         {

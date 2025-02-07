@@ -34,7 +34,7 @@ Route::get('/contact', function () {
 
 Route::view("/", "welcome");
 
-Route::middleware(["auth", AdminCheckMiddleware::class])->prefix("/admin")->group(function () {
+Route::middleware(AdminCheckMiddleware::class)->prefix("/admin")->group(function () {
 
     Route::view("/weather", "admin.weather-index");
     Route::view("/add-city", "admin/addCity");

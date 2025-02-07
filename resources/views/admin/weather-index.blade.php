@@ -14,6 +14,6 @@
 
 </form>
 
-@foreach(\App\Models\WeatherModel::all() as $weather)
+@foreach(\App\Models\WeatherModel::with("city")->get() as $weather)
     <p>{{$weather->city->name}} - {{$weather->temperature}}</p>
 @endforeach
