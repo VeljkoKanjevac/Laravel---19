@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\WeatherModel;
 use Illuminate\Http\Request;
-use MongoDB\Driver\ReadConcern;
 
 class AdminWeatherController extends Controller
 {

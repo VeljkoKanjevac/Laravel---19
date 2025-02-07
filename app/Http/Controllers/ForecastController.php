@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CitiesModel;
 use App\Models\ForecastsModel;
+use Illuminate\Http\Request;
 
 class ForecastController extends Controller
 {
@@ -12,5 +13,13 @@ class ForecastController extends Controller
 
         return view('forecasts', compact('city'));
 
+    }
+
+    public function search(Request $request)
+    {
+        $cityName = $request->get("city");
+        $cities = CitiesModel::where('name', 'like', "%$cityName%")->get();
+
+        return view('search-results', compact('cities'));
     }
 }

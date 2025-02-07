@@ -57,6 +57,9 @@ Route::middleware(["auth", AdminCheckMiddleware::class])->prefix("/admin")->grou
 
 Route::get("/weather", [WeatherController::class, "index"]);
 
+Route::get("/forecast/search", [ForecastController::class, "search"])
+    ->name("forecast.search");
+
 Route::get("/forecast/{city:name}", [ForecastController::class, "index"]);
 
 Route::middleware("auth")->prefix("/user")->group(function () {
