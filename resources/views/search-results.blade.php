@@ -22,17 +22,15 @@
                     <a class="btn btn-primary" href="{{route("user.remove.favourite", ['city' => $city->id])}}">
                         <i class="fa-solid text-white fa-trash"></i>
                     </a>
-                    <a class="btn btn-primary text-white me-4"
-                       href="{{route("forecast.permalink", ['city' => $city->name])}}"><i class="fa-solid {{$icon}}"></i> {{$city->name}}
-                    </a>
                 @else
                     <a class="btn btn-primary" href="{{route("user.add.favourite", ['city' => $city->id])}}">
                         <i class="fa-regular text-white fa-heart"></i>
                     </a>
+                @endif
+
                     <a class="btn btn-primary text-white me-4"
                        href="{{route("forecast.permalink", ['city' => $city->name])}}"><i class="fa-solid {{$icon}}"></i> {{$city->name}}
                     </a>
-                @endif
             </p>
         @endforeach
     </div>

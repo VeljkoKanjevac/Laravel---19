@@ -1,7 +1,34 @@
-@php use Illuminate\Support\Facades\Session; @endphp
+@php
+    use App\Http\ForecastHelper;
+    use Illuminate\Support\Facades\Session;
+@endphp
+
 @extends("layout")
 
 @section("sadrzajStranice")
+
+    <div class="d-flex justify-content-center">
+        <table class="table text-white">
+            <thead>
+                <tr>
+                    <th scope="col">CITY</th>
+                    <th scope="col">TEMPERATURE</th>
+                    <th scope="col">WEATHER TYPE</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($userFavourites as $userFavourite)
+                    @php $icon = ForecastHelper::getIconByWeatherType($userFavourite->city->todayForecast->weather_type) @endphp
+                    <tr>
+                        <td>{{$userFavourite->city->name}}</td>
+                        <td>{{$userFavourite->city->todayForecast->temperature}}</td>
+                        <td><i class="fa-solid {{$icon}} mt-1"></i></td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
 
     <form style="height:100vh; width: 100%"
           class="text-white text-left d-flex flex-wrap flex-column container justify-content-center align-items-center"

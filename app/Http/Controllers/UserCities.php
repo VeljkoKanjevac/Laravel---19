@@ -32,7 +32,12 @@ class UserCities extends Controller
             return redirect()->back()->with(['error' => 'Morate biti ulogovani da biste uklonili grad iz favorita']);
         }
 
-        UserCitiesModel::where(['user_id' => $user->id, 'city_id' => $city])->delete();
+        $userFavourite = UserCitiesModel::where([
+            'user_id' => $user->id,
+            'city_id' => $city,
+        ]);
+
+        $userFavourite->delete();
 
         return redirect()->back();
 
