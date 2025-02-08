@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Http;
 
 class GetRealWeather extends Command
 {
@@ -27,6 +28,6 @@ class GetRealWeather extends Command
      */
     public function handle()
     {
-        return Command::SUCCESS;
+
     }
 }
