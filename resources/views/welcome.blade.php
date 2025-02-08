@@ -29,8 +29,7 @@
         </table>
     </div>
 
-
-    <form style="height:100vh; width: 100%"
+    <form style="height:50vh; width: 100%"
           class="text-white text-left d-flex flex-wrap flex-column container justify-content-center align-items-center"
           method="GET" action="{{route("forecast.search")}}">
 
