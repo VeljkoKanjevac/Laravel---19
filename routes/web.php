@@ -33,13 +33,12 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get("/", function (){
+Route::get("/", function () {
 
     $userFavourites = [];
 
     $user = Auth::user();
-    if($user !== null)
-    {
+    if ($user !== null) {
         $userFavourites = \App\Models\UserCitiesModel::where([
             'user_id' => $user->id
         ])->get();

@@ -11,8 +11,7 @@ class UserCities extends Controller
     public function favourite(Request $request, $city)
     {
         $user = Auth::user();
-        if($user === null)
-        {
+        if ($user === null) {
             return redirect()->back()->with(['error' => 'Morate biti ulogovani da biste dodali grad u favorite']);
         }
 
@@ -27,8 +26,7 @@ class UserCities extends Controller
     public function unfavourite(Request $request, $city)
     {
         $user = Auth::user();
-        if($user === null)
-        {
+        if ($user === null) {
             return redirect()->back()->with(['error' => 'Morate biti ulogovani da biste uklonili grad iz favorita']);
         }
 

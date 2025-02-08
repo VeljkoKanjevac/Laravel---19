@@ -18,12 +18,9 @@ class AdminForecastsController extends Controller
         ]);
 
         $weather_type = $request->get('weather_type');
-        if($weather_type === 'rainy' || $weather_type === 'snowy')
-        {
+        if ($weather_type === 'rainy' || $weather_type === 'snowy') {
             $probability = $request->get('probability');
-        }
-        else
-        {
+        } else {
             $probability = null;
         }
 

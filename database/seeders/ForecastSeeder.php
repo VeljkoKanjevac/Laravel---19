@@ -22,28 +22,22 @@ class ForecastSeeder extends Seeder
 
             $previousTemperature = null;
 
-            for ($i = 0; $i < 5; $i++)
-            {
-                $weatherType = ForecastsModel::WEATHERS[rand(0,3)];
+            for ($i = 0; $i < 5; $i++) {
+                $weatherType = ForecastsModel::WEATHERS[rand(0, 3)];
                 $probability = null;
 
-                if($weatherType == 'rainy' || $weatherType == 'snowy')
-                {
+                if ($weatherType == 'rainy' || $weatherType == 'snowy') {
                     $probability = rand(1, 100);
                 }
 
                 $temperature = null;
 
-                if($previousTemperature !== null)
-                {
+                if ($previousTemperature !== null) {
                     $minTemperature = $previousTemperature - 5;
                     $maxTemperature = $previousTemperature + 5;
                     $temperature = rand($minTemperature, $maxTemperature);
-                }
-                else
-                {
-                    switch ($weatherType)
-                    {
+                } else {
+                    switch ($weatherType) {
                         case 'sunny':
                             $temperature = rand(-30, 40);
                             break;

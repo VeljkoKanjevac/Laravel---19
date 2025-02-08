@@ -10,21 +10,21 @@
     <div class="d-flex justify-content-center">
         <table class="table text-white">
             <thead>
-                <tr>
-                    <th scope="col">CITY</th>
-                    <th scope="col">TEMPERATURE</th>
-                    <th scope="col">WEATHER TYPE</th>
-                </tr>
+            <tr>
+                <th scope="col">CITY</th>
+                <th scope="col">TEMPERATURE</th>
+                <th scope="col">WEATHER TYPE</th>
+            </tr>
             </thead>
             <tbody>
-                @foreach($userFavourites as $userFavourite)
-                    @php $icon = ForecastHelper::getIconByWeatherType($userFavourite->city->todayForecast->weather_type) @endphp
-                    <tr>
-                        <td>{{$userFavourite->city->name}}</td>
-                        <td>{{$userFavourite->city->todayForecast->temperature}}</td>
-                        <td><i class="fa-solid {{$icon}} mt-1"></i></td>
-                    </tr>
-                @endforeach
+            @foreach($userFavourites as $userFavourite)
+                @php $icon = ForecastHelper::getIconByWeatherType($userFavourite->city->todayForecast->weather_type) @endphp
+                <tr>
+                    <td>{{$userFavourite->city->name}}</td>
+                    <td>{{$userFavourite->city->todayForecast->temperature}}</td>
+                    <td><i class="fa-solid {{$icon}} mt-1"></i></td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>

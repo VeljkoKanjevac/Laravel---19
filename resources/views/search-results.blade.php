@@ -28,9 +28,10 @@
                     </a>
                 @endif
 
-                    <a class="btn btn-primary text-white me-4"
-                       href="{{route("forecast.permalink", ['city' => $city->name])}}"><i class="fa-solid {{$icon}}"></i> {{$city->name}}
-                    </a>
+                <a class="btn btn-primary text-white me-4"
+                   href="{{route("forecast.permalink", ['city' => $city->name])}}"><i
+                        class="fa-solid {{$icon}}"></i> {{$city->name}}
+                </a>
             </p>
         @endforeach
     </div>
